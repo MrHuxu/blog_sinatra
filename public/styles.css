@@ -1,0 +1,36 @@
+#mainurl{
+	font-size:xx-large;
+	color:#234234;
+}
+.head{
+	color:#cccccc;
+	background-color:#333333;
+	font-family:Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
+	padding-top:16px;
+	padding-left:140px;
+	padding-bottom:20px;
+}
+#title{
+	color:#cccccc;
+	font-size:25px;
+}
+#describe{
+	color:#cccccc;
+	font-size:17px;
+	margin-top:-10px;
+}
+#log_in_out{
+	float:right;
+	color:#0066cc;
+	margin-top:-50px;
+	margin-right:60px;
+}
+.login{
+	padding-top:10px;
+	text-align:center;
+}
+#enter{
+	font-size:34px;
+}
+#input_password{
+}

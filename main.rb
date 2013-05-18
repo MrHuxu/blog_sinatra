@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'slim'
-require 'data_mapper'
 $listed = 0
 
 get '/' do

@@ -10,6 +10,20 @@
 	padding-left:140px;
 	padding-bottom:20px;
 }
+#index_title{
+	padding-top:35px;
+	padding-left:82px;
+	line-height:20px;
+	font-size:24px;
+	color:#333333;
+	font-style:italic;
+	font-weight:bold;
+}
+#index_date_visitor{
+	margin-top:10px;
+	margin-left:99px;
+	font-size:12px;
+}
 #title{
 	color:#cccccc;
 	font-size:25px;
@@ -22,6 +36,10 @@
 #failed_login, #backstage, #not_login{
 	font-family:Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
 	text-align:center;
+}
+.edit{
+	font-family:Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
+	text-align:left;
 }
 #prompt{
 	font-size:17px;

@@ -1,8 +1,23 @@
 require 'sinatra'
 require 'slim'
+require 'data_mapper'
 $listed = 0
 
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/articles.db")
+
+class Article
+	include DataMapper::Resource
+	property :id, Serial
+	property :title, String, :required => true
+	property :content, String, :required => true
+	property :visitor, Integer, :required => true
+	property :write_at, DateTime, :required => true
+end
+
+DataMapper.finalize
+
 get '/' do
+	@articles = Article.all(:order => [:id])
 	slim :index
 end
 
@@ -16,7 +31,16 @@ end
 
 get '/backstage' do
 	if $listed == 1
+		@articles = Article.all(:order => [:id])
 		slim :backstage
+	else
+		slim :not_login
+	end
+end
+
+get '/edit' do
+	if $listed == 1
+		slim :edit
 	else
 		slim :not_login
 	end
@@ -34,4 +58,9 @@ post '/login' do
 	else
 		redirect '/fail_login'
 	end
+end
+
+post '/edit' do
+	Article.create(title: params[:title], content: params[:content], write_at: Time.now)
+	redirect '/'
 end

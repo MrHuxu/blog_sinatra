@@ -3,8 +3,6 @@ require 'slim'
 require 'data_mapper'
 $listed = 0
 
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/articles.db")
-
 class Article
 	include DataMapper::Resource
 	property :id, Serial

@@ -2,13 +2,14 @@ require 'sinatra'
 require 'slim'
 require 'data_mapper'
 $listed = 0
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/articles.db")    #这句也不能忘啊！！！
 
 class Article
 	include DataMapper::Resource
 	property :id, Serial
 	property :title, String, :required => true
-	property :content, String, :required => true
-	property :visitor, Integer, :required => true
+	property :content, String
+	property :visitors, Integer, :required => true
 	property :write_at, DateTime, :required => true
 end
 
@@ -59,6 +60,6 @@ post '/login' do
 end
 
 post '/edit' do
-	Article.create(title: params[:title], content: params[:content], write_at: Time.now)
+	Article.create(title: params[:title], content: params[:content], visitors: 1, write_at: Time.now)
 	redirect '/'
 end

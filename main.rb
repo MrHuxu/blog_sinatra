@@ -1,6 +1,8 @@
 require 'sinatra'
 require 'slim'
 require 'data_mapper'
+require 'sass'
+DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/articles.db")    #这句也不能忘啊！！！
 $listed = 0
 
 class Article
@@ -12,7 +14,7 @@ class Article
 	property :write_at, DateTime, :required => true
 end
 
-DataMapper.finalize
+DataMapper.finalize   #这句千万别忘啊！！！！！
 
 get '/' do
 	@articles = Article.all(:order => [:id])

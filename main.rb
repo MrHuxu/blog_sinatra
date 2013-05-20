@@ -2,7 +2,6 @@ require 'sinatra'
 require 'slim'
 require 'data_mapper'
 $listed = 0
-DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/articles.db")    #这句也不能忘啊！！！
 
 class Article
 	include DataMapper::Resource

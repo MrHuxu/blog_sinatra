@@ -3,11 +3,10 @@ gem 'heroku'
 gem 'sinatra'
 gem 'data_mapper'
 gem 'slim'
-group :development, :test do
-	gem 'dm-sqlite-adapter'
-	gem 'sqlite3'
+group :development do
+	  gem 'dm-sqlite-adapter'
 end
+
 group :production do
-	gem 'pg'
-	gem 'dm-postgres-adapter'
+	  gem 'dm-postgres-adapter'
 end

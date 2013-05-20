@@ -42,6 +42,10 @@
 	padding-left:90px;
 	padding-top:20px;
 }
+#backstage_index_title{
+	margin-top:16px;
+	font-size:25px;
+}
 .edit{
 	font-family:Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
 	text-align:left;

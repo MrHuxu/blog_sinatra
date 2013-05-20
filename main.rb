@@ -75,5 +75,5 @@ end
 
 post '/edit' do
 	Article.create(title: params[:title], content: params[:content], visitors: 1, write_at: Time.now)
-	redirect '/'
+	redirect '/backstage'
 end

@@ -1,0 +1,6 @@
+li.article
+  #backstage_index_title
+    a[href='/content'] #{article.title} 
+    '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    input type='button' onclick="window.location.href='/delete/#{article.id}'"value='&times;'&nbsp;&nbsp;&nbsp;
+    input type='button' onclick="window.location.href='/edit/#{article.id}'"value='Edit >>'

@@ -33,9 +33,14 @@
 	font-size:17px;
 	margin-top:-10px;
 }
-#failed_login, #backstage, #not_login{
+#failed_login, #not_login{
 	font-family:Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;
 	text-align:center;
+}
+.backstage{
+	float:left;
+	padding-left:90px;
+	padding-top:20px;
 }
 .edit{
 	font-family:Times, TimesNR, 'New Century Schoolbook', Georgia, 'New York', serif;

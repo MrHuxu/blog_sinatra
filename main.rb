@@ -40,10 +40,23 @@ end
 
 get '/edit' do
 	if $listed == 1
+		@title = ''
+		@content = ''
 		slim :edit
 	else
 		slim :not_login
 	end
+end
+
+get '/delete/:id' do
+	Article.get(params[:id].to_i).destroy
+	redirect '/backstage'
+end
+
+get '/edit/:id' do
+	@title = Article.get(params[:id].to_i).title
+	@content = Article.get(params[:id].to_i).content
+	slim :edit
 end
 
 get '/logout' do

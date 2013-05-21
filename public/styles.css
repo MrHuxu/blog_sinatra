@@ -29,6 +29,8 @@
 	font-size:25px;
 }
 #content{
+	padding-left:30px;
+	padding-right:20px;
 	background-color:#cccccc;
 	width:56%;
 }

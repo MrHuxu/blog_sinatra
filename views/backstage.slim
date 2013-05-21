@@ -1,5 +1,7 @@
 ul.articles
   .backstage
+    input type='button'onclick="window.location.href='/'"value='HomePage'
+    ' &nbsp; &nbsp; &nbsp; &nbsp;
     input type='button'onclick="window.location.href='/edit'"value='Write a new blog >>'
     - @articles.reverse!.each do |article|
       == slim :backstage_index, locals: { article: article }

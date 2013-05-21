@@ -1,0 +1,9 @@
+ul 
+  - Article.get(@id).update(visitors: @visitors+1)
+  #content
+    - @article.content.split("\n").each do |paragraph|
+      <br />
+      '&nbsp;&nbsp;&nbsp;&nbsp; #{paragraph}
+      <br />
+  #home_button
+    input type='button'onclick="window.location.href='/'"value='HomePage >>'

@@ -10,8 +10,11 @@ html
     .head
       h1 id='title' 乖猫老公的享乐窝~
       p id='describe' &nbsp; Learn Coding the Hard Way
-      - if $listed == 0
-        a[href='/login' id='log_in_out'] Login 
-      - else $listed == 1
-        a[href='/logout' id='log_in_out'] Logout
+      #log_in_out
+        - if $listed == 0
+          a[href='/login']Login
+        - else 
+          a[href='/backstage']Backstage
+          '&nbsp; &nbsp; &nbsp;
+          a[href='/logout'] Logout
     == yield

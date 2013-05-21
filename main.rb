@@ -4,12 +4,13 @@ require 'data_mapper'
 require 'sass'
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/articles.db")    #这句也不能忘啊！！！
 $listed = 0
+$mode = 0
 
 class Article
 	include DataMapper::Resource
 	property :id, Serial
 	property :title, String, :required => true
-	property :content, String
+	property :content, Text
 	property :visitors, Integer, :required => true
 	property :write_at, DateTime, :required => true
 end
@@ -19,6 +20,13 @@ DataMapper.finalize   #这句千万别忘啊！！！！！
 get '/' do
 	@articles = Article.all(:order => [:id])
 	slim :index
+end
+
+get '/content/:id' do
+	@id = params[:id].to_i
+	@article = Article.get(@id)
+	@visitors = Article.get(@id).visitors
+	slim :content
 end
 
 get '/login' do
@@ -54,9 +62,15 @@ get '/delete/:id' do
 end
 
 get '/edit/:id' do
-	@title = Article.get(params[:id].to_i).title
-	@content = Article.get(params[:id].to_i).content
-	slim :edit
+	if $listed == 1
+		@id = params[:id].to_i
+		@title = Article.get(params[:id].to_i).title
+		@content = Article.get(params[:id].to_i).content
+		$mode = 1
+		slim :edit
+	else
+		slim :not_login
+	end
 end
 
 get '/logout' do
@@ -71,6 +85,14 @@ post '/login' do
 	else
 		redirect '/fail_login'
 	end
+end
+
+post '/edit/:id' do
+	puts "==============================="
+	puts params[:content]
+	Article.get(params[:id].to_i).update(title: params[:title], content: params[:content], write_at: Time.now)
+	$mode = 0
+	redirect '/backstage'
 end
 
 post '/edit' do

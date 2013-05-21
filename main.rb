@@ -88,8 +88,6 @@ post '/login' do
 end
 
 post '/edit/:id' do
-	puts "==============================="
-	puts params[:content]
 	Article.get(params[:id].to_i).update(title: params[:title], content: params[:content], write_at: Time.now)
 	$mode = 0
 	redirect '/backstage'

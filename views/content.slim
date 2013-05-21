@@ -1,6 +1,6 @@
 ul 
   - Article.get(@id).update(visitors: @visitors+1)
-  div class='span8'
+  div class='span8' style='padding-right:20px;border-right:1px solid #999999'
     <br /> <br />
     h3 #{Article.get(@id).title}
     - @article.content.split("\n").each do |paragraph|

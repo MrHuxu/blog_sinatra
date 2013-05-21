@@ -17,14 +17,14 @@ html
         div class='span4 offset2' style='margin-top:5px;'
           - if $listed == 0
             .span3
-              - 0.upto(17) do |i|
+              - 0.upto(23) do |i|
                 '&nbsp;
               button class='btn btn-info' onclick="window.location.href='/login'"Login
           - else 
             .span3
-              button class='btn btn-info'onclick="window.location.href='/logout'" Logout
-              '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              button class='btn btn-info'onclick="window.location.href='/backstage'"Backstage
+              button class='btn btn-info'onclick="window.location.href='/backstage'" Backstage
+              '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              button class='btn btn-info'onclick="window.location.href='/logout'"Logout
       <br /><br /><br />
       img class='span11'style='text-align:center'src='/head.jpg'
     == yield

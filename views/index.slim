@@ -1,3 +1,23 @@
-dl class='span12'
+dl class='span9' style='padding-left:10px;border-right:1px solid #999999'
   - @articles.reverse!.each do |article|
     == slim :article, locals: { article: article}
+<br />
+div class='span3' 
+  h3 关于博主:
+  div style='font-size:15px'
+    li style='margin-top:5px'男
+    li style='margin-top:5px'金牛座程序员
+    li style='margin-top:5px'已脱光
+    li style='margin-top:5px'喜欢唱歌，喜欢看书，最讨厌电动剃须刀
+  <br /><br />
+  h3 博主链接：
+  <br />
+  div style='font-size:19px'
+    a[href='https://github.com/MrHuxu']Github <br /><br />
+    a[href='http://weibo.com/2058722335/profile?rightmod=1&wvr=5&mod=personinfo']新浪微博<br /><br />
+    a[href='http://www.renren.com/337570117/profile']人人主页<br /><br />
+  <br /><br />
+  h3 联系博主：
+  <br />
+  a[href='mailto:hxtheone@gmail.com'style='font-size:18px']hxtheone@gmail.com
+  <br /><br />

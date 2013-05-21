@@ -1,5 +1,4 @@
-li.article
-  #index_title 
-    a[href='/content/#{article.id}'] #{article.title} <br />
-  #index_date_visitor
+li  class='span12' style='padding-left:20p; line-height:30px'
+  div 
+    a[href='/content/#{article.id}'style='font-size:20px;margin-left:10px'] #{article.title} <br />
     ' @#{article.write_at}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Visitors: #{article.visitors}

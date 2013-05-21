@@ -94,6 +94,9 @@ post '/edit/:id' do
 end
 
 post '/edit' do
+	puts params[:title]
+	puts params[:content]
+	puts Time.now
 	Article.create(title: params[:title], content: params[:content], visitors: 1, write_at: Time.now)
 	redirect '/backstage'
 end

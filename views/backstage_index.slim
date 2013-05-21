@@ -1,5 +1,5 @@
 li.article
-  #backstage_index_title
-    a[href='/edit/#{article.id}'] #{article.title} 
+  div style='font-size:15px; line-height:30px'
+    a[href='/edit/#{article.id}'font-size='12px;'] #{article.title} 
     '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
-    input type='button' onclick="window.location.href='/delete/#{article.id}'"value='&times;'&nbsp;&nbsp;&nbsp;
+    button class='btn btn-danger btn-mini'onclick="window.location.href='/delete/#{article.id}'" &times;

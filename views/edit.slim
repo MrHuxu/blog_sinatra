@@ -1,24 +1,30 @@
 ul
   .edit
     - if $mode == 0
-      form.new_article action="/edit" method="POST"
-        '标题：
+      form.new_article class='span12'action="/edit" method="POST"
         <br />
-        input id="edit_title"size="38"type="text" value=@title name="title" 
+        .span6
+          '标题：
+          input size='38'type="text" value=@title name='title'
         <br />
-        '内容：
-        <br />
-        textarea id="edit_content"cols="70"rows="24"type="text"name="content"#{@content}
-        <br />
-        input.button id="edit_button"type="submit"value="Save >>"
+        .row
+          .span6
+            '
+            '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容：
+            textarea class='field span5'rows='26'type='text'name="content"#{@content}
+          .span1
+            button class='btn btn-success' type='submit' Save >>
     - else
-      form.modify_article action="/edit/#{@id}" method='POST'
-        '标题：
+      form.modify_article class='span12'action="/edit/#{@id}" method='POST'
         <br />
-        input id="edit_title"size="38"type="text" value=@title name="title" 
+        .span6
+          '标题：
+          input size='38'type="text" value=@title name='title'
         <br />
-        '内容：
-        <br />
-        textarea id="edit_content"cols="70"rows="24"type="text"name="content"#{@content}
-        <br />
-        input.button id="edit_button"type="submit"value="Save >>"
+        .row
+          .span6
+            '
+            '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;内容：
+            textarea class='field span5'rows='26'type='text'name="content"#{@content}
+          .span1
+            button class='btn btn-success' type='submit' Save >>

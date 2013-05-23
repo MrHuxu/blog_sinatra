@@ -10,21 +10,19 @@ html
       script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"
   body
     .head class='row-fluid'
-      .span12 style='margin-top:5px;'
+      .span12 style='margin-top:5px;padding-left:65px'
         .span3
-          h2 &nbsp; &nbsp; &nbsp;乖猫老公的享乐窝 &nbsp; &nbsp;|
-        .span4
-          h2  Learn Coding the Hard Way ~ 
-        div class='span4' style='margin-top:5px;float:right;margin-right:70px'
+          h3 &nbsp; &nbsp;乖猫老公的享乐窝&nbsp; &nbsp;|
+        .span4 style='margin-left:-26px'
+          h3  Learn Coding the Hard Way ~ 
+        div class='span5' style='margin-top:15px;float:right'
           - if $listed == 0
-            .span3
-              - 0.upto(23) do |i|
-                '&nbsp;
+            .span5 style='float:right;margin-left:100px'
               button class='btn btn-info' onclick="window.location.href='/login'"Login
           - else 
-            .span3
-              button class='btn btn-info'onclick="window.location.href='/backstage'" Backstage
-              '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            .span5 style='float:right;margin-right:140px'
+              button class='btn btn-info'style='padding-right:40px'onclick="window.location.href='/backstage'" Backstage
+              '&nbsp;|
               button class='btn btn-info'onclick="window.location.href='/logout'"Logout
       <br /><br /><br />
       img class='span11'style='text-align:center'src='/head.jpg'

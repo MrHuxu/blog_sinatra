@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'slim'
 require 'data_mapper'
-require 'sass'
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/articles.db")    #这句也不能忘啊！！！
 $listed = 0
 $mode = 0
@@ -15,6 +14,16 @@ class Article
 	property :write_at, DateTime, :required => true
 end
 
+class Comments
+	include DataMapper::Resource
+	property :id, Serial
+	property :article_id, Integer, :required => true
+	property :name, String
+	property :address, String
+	property :content, Text
+	property :time, DateTime
+end
+
 DataMapper.finalize   #这句千万别忘啊！！！！！
 
 get '/' do
@@ -26,6 +35,7 @@ get '/content/:id' do
 	@id = params[:id].to_i
 	@article = Article.get(@id)
 	@visitors = Article.get(@id).visitors
+	@comments = Comments.all(:order => [:time], article_id: @id)
 	slim :content
 end
 
@@ -93,10 +103,13 @@ post '/edit/:id' do
 	redirect '/backstage'
 end
 
+post '/comment/:id' do
+	Comments.create(article_id: params[:id].to_i, name: params[:name], address: params[:address], content: params[:content], time: Time.now.asctime)
+	redirect '/content/'+ params[:id]
+end
+
+
 post '/edit' do
-	puts params[:title]
-	puts params[:content]
-	puts Time.now
 	Article.create(title: params[:title], content: params[:content], visitors: 1, write_at: Time.now)
 	redirect '/backstage'
 end

@@ -6,8 +6,7 @@ ul
     - @article.content.split("\n").each do |paragraph|
       <br />
       div style='font-size:15px'
-        '&nbsp;&nbsp;&nbsp;&nbsp; #{paragraph}
-      <br />
+        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #{paragraph}
     <br /><br /><br /><br />
   div class='span4' style='float:right; margin-right:60px'
     <br /><br />
@@ -15,7 +14,7 @@ ul
     div 
       - @comments.each do |comment|
         == slim :comment, locals: { comment: comment} 
-    div style='border-top:1px solid #cccccc; padding-top:15px'
+    div style='border-top:1px solid #cccccc; padding-top:25px'
       input type='button'onclick="window.location.href='/'"value='HomePage >>'
       ' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;or Leave Your Comment:
       <br /><br />

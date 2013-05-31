@@ -1,4 +1,4 @@
-dl class='span9' style='padding-left:10px;border-right:1px solid #999999'
+dl class='span9' style='min-width:870px;padding-left:10px;border-right:1px solid #999999'
   - @articles.reverse!.each do |article|
     == slim :article, locals: { article: article}
 <br />

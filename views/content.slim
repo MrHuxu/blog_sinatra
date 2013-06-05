@@ -1,13 +1,36 @@
 ul 
+  - code = %w{}
+  - isCode = 0
+  - changeline = 0
   - Article.get(@id).update(visitors: @visitors+1)
   div class='span8' style='min-width:780px;padding-right:45px;border-right:1px solid #999999'
     <br /> <br />
     h2 #{Article.get(@id).title}
-    - @article.content.split("\n").each do |paragraph|
-      <br />
-      div style='font-size:15px'
-        '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; #{paragraph}
+    |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+    - @article.content.split('').each do |word|
+      - if isCode == 0
+        - if word == "\n"
+          - if changeline == 0
+            - changeline = 1
+          - else
+            - changeline = 0
+            <br />
+            |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        - elsif word == '`'
+          - isCode = 1
+        - else
+          |#{word}
+      - else
+        - if word == '`'
+          - isCode = 0
+          pre.prettyprint
+            |#{code.join('')}
+          - code.clear
+          - changeline = 0
+        - else
+          - code.push(word)
     <br /><br /><br /><br />
+
   div class='span4' style='min-width:370px;float:right; margin-right:60px'
     <br /><br />
     h3 style='color:#999999;margin-bottom:5px'我相信，评论可以一针见血:

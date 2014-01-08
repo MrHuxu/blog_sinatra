@@ -1,0 +1,29 @@
+div.ui.grid#arc_list
+  div.one.wide.column
+  div.four.wide.column
+    h1#arc_year 2014
+  div.eleven.wide.column
+    -@arc_paths14.length.times do |i|
+      div.ui.link#arc_link
+        a#link href='archives/2014/#{@arc_paths14[i]}' #{@arc_names14[i]}
+        div.ui.grid
+          div.five.wide.column
+            h5#arc_detail1 Time:#{@arc_times14[i]}
+          div.eleven.wide.column
+            h5#arc_detail2 Tags:#{@arc_tags14[i]}
+div.ui.grid#arc_list
+  div.one.wide.column
+  div.four.wide.column
+    h1#arc_year 2013
+  div.eleven.wide.column
+    -@arc_paths13.length.times do |i|
+      div.ui.link#arc_link
+        a#link href='archives/2013/#{@arc_paths13[i]}' #{@arc_names13[i]}
+        div.ui.grid
+          div.five.wide.column
+            h5#arc_detail1 Time:#{@arc_times13[i]}
+          div.eleven.wide.column
+            h5#arc_detail2 Tags:#{@arc_tags13[i]}
+script type='text/javascript' src='/js/jquery-1.10.2.min.js'
+script type="text/javascript" src="/js/highlight.pack.js"
+script type='text/javascript' src='/js/slimdown.js'
